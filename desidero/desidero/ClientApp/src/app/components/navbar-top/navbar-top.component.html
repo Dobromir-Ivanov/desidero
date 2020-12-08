@@ -1,0 +1,11 @@
+<p-menubar [model]="items">
+  <div *ngIf="isLoggedIn; then logoutBlock else loginBlock"></div>
+</p-menubar>
+
+<ng-template #logoutBlock>
+  <p-button (onClick)="logout()" label="Logout" icon="pi pi-sign-out" styleClass="p-button-sm"></p-button>
+</ng-template>
+
+<ng-template #loginBlock>
+  <p-button routerLink="/login" label="Login" icon="pi pi-sign-in" styleClass="p-button-sm"></p-button>
+</ng-template>

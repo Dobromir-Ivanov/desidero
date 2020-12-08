@@ -1,12 +1,15 @@
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent, LoginComponent, RegisterComponent } from './components';
 
-import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
+  { path: 'login', component: LoginComponent, data: { title: 'Login' } },
+  { path: 'register', component: RegisterComponent, data: { title: 'Register' } },
   { path: 'home', redirectTo: '/', pathMatch: 'full' },
-  { path: '**', component: HomeComponent, data: { title: 'Page Not Found' } }
+  { path: '**', component: NotFoundComponent, data: { title: 'Page Not Found' } }
 ];
 
 

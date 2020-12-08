@@ -30,7 +30,7 @@ namespace desidero.ViewModels
         [MinLength(6, ErrorMessage = "New Password must be at least 6 characters")]
         public string NewPassword { get; set; }
 
-        [MinimumCount(1, ErrorMessage = "Roles cannot be empty")]
+        // [MinimumCount(1, ErrorMessage = "Roles cannot be empty")]
         public string[] Roles { get; set; }
     }
 

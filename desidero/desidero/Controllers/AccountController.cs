@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace desidero.Controllers
 {
-    [Authorize(AuthenticationSchemes = IdentityServerAuthenticationDefaults.AuthenticationScheme)]
+    // [Authorize(AuthenticationSchemes = IdentityServerAuthenticationDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
@@ -257,23 +257,35 @@ namespace desidero.Controllers
 
 
         [HttpPost("users")]
-        [Authorize(Authorization.Policies.ManageAllUsersPolicy)]
+        // [Authorize(Authorization.Policies.ManageAllUsersPolicy)]
         [ProducesResponseType(201, Type = typeof(UserViewModel))]
         [ProducesResponseType(400)]
         [ProducesResponseType(403)]
         public async Task<IActionResult> Register([FromBody] UserEditViewModel user)
         {
+            /*
             if (!(await _authorizationService.AuthorizeAsync(this.User, (user.Roles, new string[] { }), Authorization.Policies.AssignAllowedRolesPolicy)).Succeeded)
                 return new ChallengeResult();
-
+            */
 
             if (ModelState.IsValid)
             {
                 if (user == null)
                     return BadRequest($"{nameof(user)} cannot be null");
 
+                // add default user role 
+                if (user.Roles == null || user.Roles.Length == 0)
+                {
+                    var defaultRole = await _accountManager.GetRoleByNameAsync("user");
+                    user.Roles = new string[] { defaultRole.Name };
+                }
 
                 ApplicationUser appUser = _mapper.Map<ApplicationUser>(user);
+
+                // developmant settings
+                appUser.IsEnabled = true;
+                appUser.EmailConfirmed = true;
+                // end developmant settings
 
                 var result = await _accountManager.CreateUserAsync(appUser, user.Roles, user.NewPassword);
                 if (result.Succeeded)

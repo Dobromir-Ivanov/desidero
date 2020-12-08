@@ -28,16 +28,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/primeicons/primeicons.css"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.slim.js",
-              "node_modules/popper.js/dist/umd/popper.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js",
-              "node_modules/bootstrap-toggle/js/bootstrap-toggle.js",
-              "node_modules/bootstrap-select/dist/js/bootstrap-select.js",
-              "node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
