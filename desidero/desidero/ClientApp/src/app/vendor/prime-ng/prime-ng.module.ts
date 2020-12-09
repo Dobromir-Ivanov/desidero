@@ -8,6 +8,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { CardModule } from 'primeng/card';
+import { PanelMenuModule } from 'primeng/panelmenu';
 
 
 
@@ -21,6 +23,8 @@ import { MessageModule } from 'primeng/message';
     DialogModule,
     MessagesModule,
     MessageModule,
+    CardModule,
+    PanelMenuModule,
   ]
 })
 export class PrimeNgModule { }

@@ -1,0 +1,21 @@
+<div *ngIf="publication$ | async as item">
+  <div class="card-body">
+
+    <ng-container *ngIf="categories$ | async as categories">
+      <h5 class="card-title">{{getCategoryName(item.categoryId, categories)}}</h5>
+    </ng-container>
+    <h6>{{item.title}}</h6>
+
+    <ng-container *ngIf="author$ | async as author">
+      <p>
+        <a routerLink="user/{{author.id}}"> <small class="text-muted"><i class="pi pi-user"></i>
+            {{author.userName}}</small></a>
+        |
+        <small class="text-muted"><i class="pi pi-calendar"></i> {{getPublicationData(item)}}</small>
+      </p>
+    </ng-container>
+
+    <p class="card-text">{{item.description}}</p>
+
+    <p class="card-text"><small class="text-muted"><i class="pi pi-eye"></i> {{item.views}}</small></p>
+  </div>

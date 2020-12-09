@@ -1,6 +1,6 @@
 export class Publication {
   id: number;
-  userId: number;
+  authorId: string;
   categoryId: number;
   title: string;
   description: string;

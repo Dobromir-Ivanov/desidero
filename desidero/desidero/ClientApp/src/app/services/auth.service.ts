@@ -25,12 +25,17 @@ import { Utilities } from '../utilities';
 
 @Injectable()
 export class AuthService {
+
   public get loginUrl() { return Configuration.loginUrl; }
   public get homeUrl() { return Configuration.homeUrl; }
   public get userUrl() { return Configuration.userUrl; }
 
+  public loginRedirectUrl: string;
+
   private previousIsLoggedInCheck = false;
   private loginStatus = new Subject<boolean>();
+
+
 
   constructor(
     private router: Router,

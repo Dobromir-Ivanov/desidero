@@ -21,7 +21,7 @@ import { ChartsModule } from 'ng2-charts';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
 
-import { AppRoutingModule } from './app-routing.module';
+import { appRouting } from './app.routing';
 import { AppErrorHandler } from './app-error.handler';
 
 import {
@@ -35,6 +35,7 @@ import { AppComponent } from './app.component';
 import {
   HomeComponent,
   LoginComponent,
+  FooterComponent,
   NavbarTopComponent,
   NotFoundComponent,
   RegisterComponent
@@ -42,9 +43,8 @@ import {
 
 import { SharedModule } from './shared/shared.module';
 import { appInterceptorProvider } from './core/app.interceptor';
-
-
-
+import { PublicationModule } from './moduls/publication/publication.module';
+import { AuthGuard } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -55,8 +55,10 @@ import { appInterceptorProvider } from './core/app.interceptor';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
+    appRouting,
     SharedModule,
+
+    PublicationModule,
 
     OAuthModule.forRoot(),
   ],
@@ -65,6 +67,7 @@ import { appInterceptorProvider } from './core/app.interceptor';
     HomeComponent,
     NavbarTopComponent,
     LoginComponent,
+    FooterComponent,
     RegisterComponent,
     NotFoundComponent
   ],
@@ -74,7 +77,7 @@ import { appInterceptorProvider } from './core/app.interceptor';
     LocalStorage,
     AccountService,
     AccountApiService,
-
+    AuthGuard,
     appInterceptorProvider,
   ],
   bootstrap: [AppComponent]
