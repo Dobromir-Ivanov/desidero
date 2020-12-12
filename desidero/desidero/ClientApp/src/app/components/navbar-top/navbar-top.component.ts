@@ -10,11 +10,30 @@ import { AuthService } from 'src/app/services/';
 })
 export class NavbarTopComponent implements OnInit, OnDestroy {
 
-  items: MenuItem[];
+  publicPages: MenuItem[] = [
+    {
+      label: 'Home',
+      routerLink: '/home',
+      icon: 'pi pi-home',
+    }
+  ];
 
-  userMenu: MenuItem[];
+  privatePages: MenuItem[] = [
+    {
+      label: 'Account',
+      icon: 'pi pi-key',
+      command: () => this.authService.redirectLoginUser()
+    },
+    {
+      label: 'Logout',
+      icon: 'pi pi-sign-out',
+      command: () => {
+        this.logout();
+      }
+    }
+  ]
 
-  isLoggedIn = false;
+  isLoggedIn = null;
 
   private loginStatusSubscription: Subscription;
 
@@ -26,18 +45,12 @@ export class NavbarTopComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+    this.isLoggedIn = this.authService.isLoggedIn
 
     this.loginStatusSubscription = this.authService.getLoginStatusEvent().subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
     });
 
-    this.items = [
-      {
-        label: 'Home',
-        routerLink: 'home',
-        icon: 'pi pi-home',
-      }
-    ];
   }
 
 

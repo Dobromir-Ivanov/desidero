@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { first, filter, map } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
+import { Configuration } from 'src/app/config';
 import { UserEdit } from 'src/app/dto';
-import { AccountService } from 'src/app/services';
+import { AccountService, MessagesService } from 'src/app/services';
 import { rePasswordValidatorFactory } from 'src/app/shared/validators';
 
 
@@ -22,9 +23,9 @@ export class RegisterComponent /* implements OnInit */ {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
     private accountService: AccountService,
+    private messagesService: MessagesService
   ) { }
 
   ngOnInit() {
@@ -56,9 +57,10 @@ export class RegisterComponent /* implements OnInit */ {
     this.accountService.createUser(user)
       .pipe(first())
       .subscribe(
-        () => this.router.navigateByUrl('/login'),
+        () => this.router.navigateByUrl(Configuration.loginUrl),
         error => {
           this.isLoading = false;
+          this.messagesService.alertError(error);
         }
       );
   }

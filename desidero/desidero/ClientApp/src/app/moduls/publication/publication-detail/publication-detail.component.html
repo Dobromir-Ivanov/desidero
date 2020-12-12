@@ -8,14 +8,14 @@
 
     <ng-container *ngIf="author$ | async as author">
       <p>
-        <a routerLink="user/{{author.id}}"> <small class="text-muted"><i class="pi pi-user"></i>
+        <a routerLink="/wp-admin/user/{{author.id}}"> <small class="text-muted"><i class="pi pi-user"></i>
             {{author.userName}}</small></a>
         |
         <small class="text-muted"><i class="pi pi-calendar"></i> {{getPublicationData(item)}}</small>
       </p>
     </ng-container>
 
-    <p class="card-text">{{item.description}}</p>
+    <div [innerHTML]="item.description"></div>
 
     <p class="card-text"><small class="text-muted"><i class="pi pi-eye"></i> {{item.views}}</small></p>
   </div>

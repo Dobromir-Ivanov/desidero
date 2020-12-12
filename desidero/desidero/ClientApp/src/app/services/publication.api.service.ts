@@ -1,3 +1,4 @@
+import { map, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { DataCategories } from '../data-fake';
@@ -8,13 +9,22 @@ import { DataPublications } from './../data-fake/data-publication';
 @Injectable()
 export class PublicationApiService {
 
-
+  private _storePublication: Publication[] = DataPublications;
 
   constructor() { }
 
 
-  getAllPublication(): Observable<Publication[]> {
-    return of(DataPublications);
+  getAllPublication(param?: any): Observable<Publication[]> {
+    const userId = param?.userId;
+    const publications$ = of(this._storePublication)
+
+    if (!!userId) {
+      return publications$.pipe(
+        map((items) => items.filter(pub => pub.authorId === userId))
+      )
+    }
+
+    return publications$;
   }
 
 
@@ -24,7 +34,20 @@ export class PublicationApiService {
 
 
   getPublicationById(id: number): Observable<Publication> {
-    return of(DataPublications.find(p => p.id === id));
+    return of(this._storePublication.find(p => p.id === id));
+  }
+
+
+  createPublication(item: Publication): Observable<Publication> {
+    return of(item).pipe(
+      map(publication => {
+        publication.id = this._storePublication.length + 1;
+        return publication
+      }),
+      tap((pub) => {
+        this._storePublication = [...this._storePublication, pub]
+      })
+    )
   }
 
 

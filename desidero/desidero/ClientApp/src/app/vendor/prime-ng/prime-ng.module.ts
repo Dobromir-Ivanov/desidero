@@ -10,6 +10,9 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { CardModule } from 'primeng/card';
 import { PanelMenuModule } from 'primeng/panelmenu';
+import { DropdownModule } from 'primeng/dropdown';
+import { EditorModule } from 'primeng/editor';
+
 
 
 
@@ -25,6 +28,8 @@ import { PanelMenuModule } from 'primeng/panelmenu';
     MessageModule,
     CardModule,
     PanelMenuModule,
+    DropdownModule,
+    EditorModule
   ]
 })
 export class PrimeNgModule { }

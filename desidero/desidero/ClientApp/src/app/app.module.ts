@@ -28,7 +28,8 @@ import {
   AuthService,
   LocalStorage,
   AccountApiService,
-  AccountService
+  AccountService,
+  MessagesService
 } from './services';
 
 import { AppComponent } from './app.component';
@@ -79,6 +80,7 @@ import { AuthGuard } from './services/auth-guard.service';
     AccountApiService,
     AuthGuard,
     appInterceptorProvider,
+    MessagesService
   ],
   bootstrap: [AppComponent]
 })

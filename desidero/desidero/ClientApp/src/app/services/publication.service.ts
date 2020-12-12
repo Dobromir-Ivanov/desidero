@@ -10,11 +10,16 @@ import { User } from '../dto';
 export class PublicationService {
 
 
+
   constructor(private publicationApiService: PublicationApiService) { }
 
-  getAll(): Observable<Publication[]> {
-    return this.publicationApiService.getAllPublication();
+  getAll(param?: any): Observable<Publication[]> {
+    return this.publicationApiService.getAllPublication(param);
   }
+
+  /* getPublicationByUser(userId: string): any {
+    throw new Error('Method not implemented.');
+  } */
 
   getById(id: number): Observable<Publication> {
     return this.publicationApiService.getPublicationById(id);
@@ -25,7 +30,7 @@ export class PublicationService {
   }
 
   createPublication(item: Publication): Observable<Publication> {
-    return of(null);
+    return this.publicationApiService.createPublication(item);
   }
 
   deletePublication(item: Publication): Observable<any> {

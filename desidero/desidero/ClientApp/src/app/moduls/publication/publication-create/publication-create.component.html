@@ -1,0 +1,36 @@
+<div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit(pubForm)" #pubForm="ngForm">
+      <div class="p-fluid">
+
+        <div class="p-field">
+          <label for="category">Category</label>
+          <ng-container id="category" *ngIf="categories$ | async as categories">
+            <p-dropdown [options]="categories" placeholder="Select a Category" [showClear]="true" class="p-invalid"
+              optionLabel="title" ngModel #category="ngModel" name="category" required>
+            </p-dropdown>
+            <div [hidden]="category.valid || !submitted">
+              <small class="p-invalid">Category is required.</small>
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="p-field">
+          <label for="title">Title</label>
+          <input id="title" type="text" pInputText ngModel #title="ngModel" name="title" required>
+          <div [hidden]="title.valid || !submitted">
+            <small class="p-invalid">Title is required.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-field">
+        <label for="description">Description</label>
+        <p-editor ngModel name="description" [style]="{'height':'320px'}"></p-editor>
+      </div>
+
+      <p-button type="submit" label="{{isLoading ? 'Save' : 'Submit'}}"></p-button>
+
+    </form>
+  </div>
+</div>

@@ -1,4 +1,11 @@
 import { Category } from './../dto/category';
+
+const itam0 = new Category();
+itam0.id = 0;
+itam0.title = 'Друго ...';
+itam0.description = '';
+itam0.createOn = new Date();
+
 const itam1 = new Category();
 itam1.id = 1;
 itam1.title = 'Строител/Строителство';
@@ -52,4 +59,5 @@ export const DataCategories = [
   itam4,
   itam5,
   itam6,
+  itam0
 ];

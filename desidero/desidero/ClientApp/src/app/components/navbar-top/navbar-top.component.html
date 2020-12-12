@@ -1,9 +1,13 @@
-<p-menubar [model]="items">
+<p-menubar [model]="publicPages">
   <div *ngIf="isLoggedIn; then logoutBlock else loginBlock"></div>
 </p-menubar>
 
 <ng-template #logoutBlock>
-  <p-button (onClick)="logout()" label="Logout" icon="pi pi-sign-out" styleClass="p-button-sm"></p-button>
+  <div>
+    <button pButton pRipple (click)="menu.toggle($event)" type="button" icon="pi pi-user"
+      class="p-button-rounded p-button-info p-button-outlined"></button>
+    <p-menu #menu [model]="privatePages" [popup]="true"></p-menu>
+  </div>
 </ng-template>
 
 <ng-template #loginBlock>

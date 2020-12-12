@@ -1,5 +1,7 @@
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { User } from 'src/app/dto';
 
 @Component({
   selector: 'app-sidebar-nav',
@@ -10,9 +12,17 @@ export class SidebarNavComponent implements OnInit {
 
   items: MenuItem[];
 
-  constructor() { }
+  private get currentUser(): User {
+    return this.authService.currentUser;
+  }
+
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+    const item: MenuItem = {}
+    item.queryParams
     this.items = [
       {
         label: 'Publications',
@@ -20,7 +30,16 @@ export class SidebarNavComponent implements OnInit {
         items: [
           { label: 'All', icon: 'pi pi-fw pi-bars', routerLink: 'publication/list' },
           { separator: true },
-          { label: 'Quit', icon: 'pi pi-fw pi-times' }
+          { label: 'New', icon: 'pi pi-fw pi-plus', routerLink: 'publication/create' },
+          { separator: true },
+          {
+            label: 'My publication',
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'publication/list',
+            queryParams: { userId: this.currentUser.id },
+            // queryParamsHandling: "merge"
+
+          },
         ]
       },
       {

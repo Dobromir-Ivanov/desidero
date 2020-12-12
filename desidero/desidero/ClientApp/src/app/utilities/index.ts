@@ -284,5 +284,9 @@ export class Utilities {
     return base.replace(/\/$/, '');
   }
 
+  public static convertDateToUTC(date) {
+    return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+  }
+
 
 }

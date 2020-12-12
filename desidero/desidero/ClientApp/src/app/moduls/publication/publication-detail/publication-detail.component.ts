@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { from, Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { Category, Publication, User } from 'src/app/dto';
-import { PublicationService } from 'src/app/services/publication.service';
+import { PublicationService } from 'src/app/services/';
 
 @Component({
   selector: 'app-publication-detail',
@@ -25,7 +25,6 @@ export class PublicationDetailComponent implements OnInit {
 
   ngOnInit() {
     this.categories$ = this.publicationService.getPublicationCategories();
-    ;
 
     this.publication$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.publicationService.getById(Number.parseInt(params.get('id')))),
