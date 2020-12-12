@@ -1,12 +1,16 @@
-import { MessagesService } from './../../../services/messages.service';
-import { AuthService } from 'src/app/services/';
-import { PublicationService } from './../../../services/publication.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Category, Publication } from 'src/app/dto';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { Subscription, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { Router, ActivatedRoute } from '@angular/router';
+
 import { Configuration } from 'src/app/config';
+
+import { Category, Publication } from 'src/app/dto';
+
+import { MessagesService, AuthService } from 'src/app/core/services';
+import { PublicationService } from '../services/';
+
 
 @Component({
   selector: 'app-publication-list',
@@ -35,7 +39,6 @@ export class PublicationListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
 
     this.categories$ = this.publicationService.getPublicationCategories();
 

@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PublicationRoutes } from './publication.routing';
 
-import { PublicationApiService, PublicationService } from 'src/app/services/';
+import { PublicationApiService, PublicationService } from './services/';
 
 import { PublicationListComponent } from './publication-list/publication-list.component';
 import { PublicationCreateComponent } from './publication-create/publication-create.component';

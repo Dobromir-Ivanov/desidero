@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/dto';
-import { UserService } from 'src/app/services';
+import { UserService } from '../services';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

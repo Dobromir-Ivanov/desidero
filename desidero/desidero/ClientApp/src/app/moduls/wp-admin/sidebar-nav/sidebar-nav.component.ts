@@ -1,4 +1,4 @@
-import { AuthService } from './../../../services/auth.service';
+import { AuthService } from 'src/app/core/services';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { User } from 'src/app/dto';
@@ -29,20 +29,20 @@ export class SidebarNavComponent implements OnInit {
     item.queryParams
     this.items = [
       {
-        label: 'Users',
+        label: 'USERS',
         icon: 'pi pi-fw pi-users',
         items: [
-          { label: 'All', icon: 'pi pi-fw pi-bars', routerLink: 'user/list' },
+          { label: 'All users', icon: 'pi pi-fw pi-list', routerLink: 'user/list' },
         ],
         visible: this.currentUserIsAdmmin
       },
       {
-        label: 'Publications',
+        label: 'PUBLICATIONS',
         icon: 'pi pi-pw pi-file',
         items: [
-          { label: 'All', icon: 'pi pi-fw pi-bars', routerLink: 'publication/list' },
+          { label: 'All publications', icon: 'pi pi-fw pi-list', routerLink: 'publication/list' },
           { separator: true },
-          { label: 'New', icon: 'pi pi-fw pi-plus', routerLink: 'publication/create' },
+          { label: 'New publication', icon: 'pi pi-fw pi-plus', routerLink: 'publication/create' },
           { separator: true },
           {
             label: 'My publication',

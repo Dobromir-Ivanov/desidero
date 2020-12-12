@@ -1,11 +1,11 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
-import { UserService, MessagesService } from 'src/app/services';
 import { User } from 'src/app/dto';
-import { tap } from 'rxjs/operators';
 import { Configuration } from 'src/app/config';
-import { Router } from '@angular/router';
+
+import { MessagesService } from 'src/app/core/services';
+import { UserService } from '../services';
 
 
 @Component({

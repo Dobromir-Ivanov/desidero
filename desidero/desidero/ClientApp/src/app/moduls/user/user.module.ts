@@ -4,7 +4,7 @@ import { UserRoutes } from './user.routing';
 
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import { UserApiService, UserService } from 'src/app/services';
+import { UserApiService, UserService } from './services';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

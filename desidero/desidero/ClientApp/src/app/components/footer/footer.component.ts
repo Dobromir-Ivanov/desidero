@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+
+  get appTitle(): string {
+    return environment.appTitle;
+  }
 
   constructor() { }
 

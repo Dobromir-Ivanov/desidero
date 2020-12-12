@@ -1,14 +1,16 @@
-import { Router } from '@angular/router';
-import { AuthService } from './../../../services/auth.service';
-import { FormGroup, NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { Category } from './../../../dto/category';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
-import { PublicationService } from './../../../services/';
-import { Publication, User } from 'src/app/dto';
+import { Observable } from 'rxjs';
+
+import { Publication, User, Category } from 'src/app/dto';
+
 import { Utilities } from 'src/app/utilities';
 import { Configuration } from 'src/app/config';
+
+import { PublicationService } from '../services/';
+import { AuthService } from 'src/app/core/services';
 
 
 @Component({

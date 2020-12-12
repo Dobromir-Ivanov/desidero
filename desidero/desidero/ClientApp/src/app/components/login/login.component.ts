@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserLogin } from 'src/app/dto';
-import { AuthService, MessagesService } from 'src/app/services';
+import { AuthService, MessagesService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-login',

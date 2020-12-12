@@ -1,10 +1,9 @@
-import { map, switchMap } from 'rxjs/operators';
-import { Category } from './../dto/category';
+import { Category } from '../../../dto/category';
 import { Observable, of } from 'rxjs';
-import { Publication } from './../dto/publication';
+import { Publication } from '../../../dto/publication';
 import { Injectable } from '@angular/core';
 import { PublicationApiService } from './publication.api.service';
-import { User } from '../dto';
+import { User } from '../../../dto';
 
 @Injectable()
 export class PublicationService {

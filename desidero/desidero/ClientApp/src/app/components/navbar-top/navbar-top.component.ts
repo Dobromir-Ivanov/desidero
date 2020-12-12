@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/services/';
+import { AuthService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-navbar-top',

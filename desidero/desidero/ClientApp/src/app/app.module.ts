@@ -24,13 +24,6 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { appRouting } from './app.routing';
 import { AppErrorHandler } from './app-error.handler';
 
-import {
-  AuthService,
-  LocalStorage,
-  AccountApiService,
-  AccountService,
-  MessagesService
-} from './services';
 
 import { AppComponent } from './app.component';
 import {
@@ -45,7 +38,7 @@ import {
 import { SharedModule } from './shared/shared.module';
 import { appInterceptorProvider } from './core/app.interceptor';
 import { PublicationModule } from './moduls/publication/publication.module';
-import { AuthGuard } from './services/auth-guard.service';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -62,6 +55,8 @@ import { AuthGuard } from './services/auth-guard.service';
     PublicationModule,
 
     OAuthModule.forRoot(),
+
+    CoreModule,
   ],
   declarations: [
     AppComponent,
@@ -74,13 +69,7 @@ import { AuthGuard } from './services/auth-guard.service';
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler },
-    AuthService,
-    LocalStorage,
-    AccountService,
-    AccountApiService,
-    AuthGuard,
     appInterceptorProvider,
-    MessagesService
   ],
   bootstrap: [AppComponent]
 })

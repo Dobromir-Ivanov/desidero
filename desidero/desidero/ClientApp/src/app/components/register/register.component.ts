@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { Configuration } from 'src/app/config';
 import { UserEdit } from 'src/app/dto';
-import { AccountService, MessagesService } from 'src/app/services';
+import { AccountService, MessagesService } from 'src/app/core/services';
 import { rePasswordValidatorFactory } from 'src/app/shared/validators';
 
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Utilities } from '../utilities';
+import { Utilities } from 'src/app/utilities';
 
 @Injectable()
 export class LocalStorage {

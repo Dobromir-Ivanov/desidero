@@ -1,10 +1,10 @@
 import { Injectable, Provider } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Configuration } from '../config';
-import { USE_BASE_URL } from './constants';
-import { AuthService } from '../services';
+import { USE_BASE_URL } from 'src/app/constants';
+import { AuthService } from './services';
 import { OAuthService } from 'angular-oauth2-oidc';
 
 @Injectable()

@@ -1,6 +1,5 @@
-import { AccountApiService } from './account.api.service';
 import { Injectable } from '@angular/core';
-import { Role, User } from '../dto';
+import { Role, User } from '../../../dto';
 import { UserApiService } from './user.api.service';
 import { of } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';

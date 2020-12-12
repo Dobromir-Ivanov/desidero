@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { from, Observable } from 'rxjs';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { mergeMap } from 'rxjs/operators';
-import { LoginResponse } from '../dto';
-import { Configuration } from '../config';
+import { LoginResponse } from 'src/app/dto';
+import { Configuration } from 'src/app/config';
 
 
 @Injectable()

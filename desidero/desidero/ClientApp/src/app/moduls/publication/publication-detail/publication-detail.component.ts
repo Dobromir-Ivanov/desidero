@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { from, Observable } from 'rxjs';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+
+import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
+
 import { Category, Publication, User } from 'src/app/dto';
-import { PublicationService } from 'src/app/services/';
+
+import { PublicationService } from '../services';
 
 @Component({
   selector: 'app-publication-detail',

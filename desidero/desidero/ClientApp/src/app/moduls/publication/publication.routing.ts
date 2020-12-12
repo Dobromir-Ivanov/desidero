@@ -1,6 +1,6 @@
 import { PublicationCreateComponent } from './publication-create/publication-create.component';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from 'src/app/services/auth-guard.service';
+import { AuthGuard } from 'src/app/core/guards';
 import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
 import { PublicationListComponent } from './publication-list/publication-list.component';
 

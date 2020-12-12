@@ -1,7 +1,13 @@
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent, LoginComponent, RegisterComponent } from './components';
-import { AuthGuard } from './services/auth-guard.service';
+import { AuthGuard } from './core/guards';
+
+import {
+  HomeComponent,
+  LoginComponent,
+  RegisterComponent
+} from './components';
+
 
 const wpAdminModule = () => import('./moduls/wp-admin/wp-admin.module').then(m => m.WpAdminModule);
 

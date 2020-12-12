@@ -1,10 +1,10 @@
 import { map, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { DataCategories } from '../data-fake';
-import { Category, Publication } from '../dto';
+import { Category, Publication } from 'src/app/dto';
 
-import { DataPublications } from './../data-fake/data-publication';
+import { DataCategories } from 'src/app/data-fake';
+import { DataPublications } from 'src/app/data-fake/data-publication';
 
 @Injectable()
 export class PublicationApiService {

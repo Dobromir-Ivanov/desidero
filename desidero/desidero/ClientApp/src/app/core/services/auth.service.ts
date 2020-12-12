@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Configuration } from './../config/index';
+import { Configuration } from 'src/app/config/index';
 
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { DBkeys } from '../core/db-keys';
+import { DBkeys } from '../db-keys';
 
 import { LocalStorage } from './local-storage.service';
 import { AccountService } from './account.service';
-import { JwtHelper } from '../helpers/jwt-helper';
+import { JwtHelper } from 'src/app/helpers/jwt-helper';
 
 import {
   AccessToken,
   LoginResponse,
   PermissionValues,
   User, UserLogin
-} from '../dto';
-import { Utilities } from '../utilities';
-import { ADMIN_ROLE } from '../core/constants';
+} from 'src/app/dto';
+import { ADMIN_ROLE } from 'src/app/constants';
 
 
 

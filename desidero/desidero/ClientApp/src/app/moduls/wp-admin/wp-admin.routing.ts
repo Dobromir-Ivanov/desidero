@@ -1,6 +1,6 @@
-import { mergeMap } from 'rxjs/operators';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from 'src/app/services';
+import { AuthGuard } from 'src/app/core/guards';
+
 import { WpAdminComponent } from './wp-admin.component';
 
 const publicationModule = () => import('../publication/publication.module').then(m => m.PublicationModule);
