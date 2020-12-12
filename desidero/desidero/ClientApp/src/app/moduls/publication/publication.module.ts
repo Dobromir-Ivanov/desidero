@@ -7,7 +7,6 @@ import { PublicationRoutes } from './publication.routing';
 
 import { PublicationApiService, PublicationService } from 'src/app/services/';
 
-import { PublicationComponent } from './publication.component';
 import { PublicationListComponent } from './publication-list/publication-list.component';
 import { PublicationCreateComponent } from './publication-create/publication-create.component';
 import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
@@ -21,7 +20,6 @@ import { PublicationDetailComponent } from './publication-detail/publication-det
     PublicationRoutes
   ],
   declarations: [
-    PublicationComponent,
     PublicationListComponent,
     PublicationDetailComponent,
     PublicationCreateComponent

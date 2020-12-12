@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { PrimeNgModule } from '../vendor/prime-ng/prime-ng.module';
 
 
 @NgModule({
-  declarations: [],
-  imports: [],
   exports: [
-    PrimeNgModule
+    FormsModule,
+    PrimeNgModule,
   ]
 })
 export class SharedModule { }

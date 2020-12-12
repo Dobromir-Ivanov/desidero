@@ -1,0 +1,32 @@
+<div *ngIf="user$ |async as user">
+
+  <table class="table table-sm">
+    <tr>
+      <th>User Name</th>
+      <td>{{user.userName}}</td>
+    </tr>
+    <tr>
+      <th>Full Name</th>
+      <td>{{user.fullName}}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <th>Phone Number</th>
+      <td>{{user.phoneNumber}}</td>
+    </tr>
+
+    <tr>
+      <th>Job Title</th>
+      <td>{{user.jobTitle}}</td>
+    </tr>
+
+    <tr>
+      <th>Roles</th>
+      <td><span *ngFor="let role of user.roles">{{role}}</span></td>
+    </tr>
+
+  </table>
+</div>

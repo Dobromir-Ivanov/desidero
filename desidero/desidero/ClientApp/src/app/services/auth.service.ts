@@ -19,6 +19,7 @@ import {
   User, UserLogin
 } from '../dto';
 import { Utilities } from '../utilities';
+import { ADMIN_ROLE } from '../core/constants';
 
 
 
@@ -28,7 +29,7 @@ export class AuthService {
 
   public get loginUrl() { return Configuration.loginUrl; }
   public get homeUrl() { return Configuration.homeUrl; }
-  public get userUrl() { return Configuration.userUrl; }
+  public get wpAdminUrl() { return Configuration.wpAdminUrl; }
 
   public loginRedirectUrl: string;
 
@@ -67,7 +68,7 @@ export class AuthService {
   }
 
   redirectLoginUser() {
-    this.router.navigateByUrl(this.userUrl);
+    this.router.navigateByUrl(this.wpAdminUrl);
   }
 
 
@@ -100,6 +101,9 @@ export class AuthService {
     return this.accessTokenExpiryDate.valueOf() <= new Date().valueOf();
   }
 
+  get currentUserIsAdmmin(): boolean {
+    return this.currentUser.roles.indexOf(ADMIN_ROLE) !== -1;
+  }
 
 
   /*************************************

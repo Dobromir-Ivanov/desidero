@@ -1,0 +1,55 @@
+<div *ngIf="user">
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="p-fluid p-formgrid p-grid">
+
+        <div class="p-field p-col-12 p-md-6">
+          <label for="userName">User Name</label>
+          <input id="userName" type="text" pInputText formControlName="userName">
+
+          <div *ngIf="submitted && f.userName.errors">
+            <small *ngIf="f.userName.errors.required" class="p-invalid">User name is required</small>
+          </div>
+        </div>
+
+        <div class="p-field p-col-12 p-md-6">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" pInputText formControlName="fullName">
+        </div>
+
+        <div class="p-field p-col-12 ">
+          <label for="email">Email</label>
+          <input id="email" type="email" pInputText formControlName="email">
+        </div>
+
+        <div class="p-field p-col-12 ">
+          <label for="phoneNumber">Phone Number</label>
+          <input id="phoneNumber" type="text" pInputText formControlName="phoneNumber">
+        </div>
+
+        <div class="p-field p-col-12">
+          <label for="jobTitle">Job Title</label>
+          <input id="jobTitle" type="text" pInputText formControlName="jobTitle">
+        </div>
+
+        <div class="p-field p-col-12">
+          <label for="roles">Roles</label>
+          <p-dropdown [options]="roles" placeholder="Select a Role" [showClear]="true" class="p-invalid"
+            optionLabel="name" optionValue="name" required formControlName="roles">
+          </p-dropdown>
+
+          <div *ngIf="submitted && f.roles.errors">
+            <small *ngIf="f.roles.errors.required" class="p-invalid">Roles is required</small>
+          </div>
+        </div>
+
+        <div class="p-field p-col-12">
+          <button pButton type="submit" class="w-25" [disabled]="isLoading" label="Save">
+            <i *ngIf="isLoading" class='fa fa-circle-o-notch fa-spin'></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

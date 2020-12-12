@@ -12,6 +12,7 @@ import { CardModule } from 'primeng/card';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
+import { ChipsModule } from 'primeng/chips';
 
 
 
@@ -29,7 +30,9 @@ import { EditorModule } from 'primeng/editor';
     CardModule,
     PanelMenuModule,
     DropdownModule,
-    EditorModule
+    EditorModule,
+    ChipsModule,
+
   ]
 })
 export class PrimeNgModule { }

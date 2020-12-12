@@ -8,11 +8,6 @@ const routes: Routes = [
   { path: 'list', component: PublicationListComponent },
   { path: 'detail/:id', component: PublicationDetailComponent, canActivate: [AuthGuard] },
   { path: 'create', component: PublicationCreateComponent, canActivate: [AuthGuard] },
-  /* {
-    path: '',
-    // pathMatch: 'full',
-    redirectTo: 'list'
-  }, */
 ];
 
 export const PublicationRoutes = RouterModule.forChild(routes);

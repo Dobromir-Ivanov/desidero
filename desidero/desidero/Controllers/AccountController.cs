@@ -57,8 +57,10 @@ namespace desidero.Controllers
         [ProducesResponseType(404)]
         public async Task<IActionResult> GetUserById(string id)
         {
+            /*
             if (!(await _authorizationService.AuthorizeAsync(this.User, id, AccountManagementOperations.Read)).Succeeded)
                 return new ChallengeResult();
+            */
 
 
             UserViewModel userVM = await GetUserViewModelHelper(id);
@@ -89,7 +91,7 @@ namespace desidero.Controllers
 
 
         [HttpGet("users")]
-        [Authorize(Authorization.Policies.ViewAllUsersPolicy)]
+        // [Authorize(Authorization.Policies.ViewAllUsersPolicy)]
         [ProducesResponseType(200, Type = typeof(List<UserViewModel>))]
         public async Task<IActionResult> GetUsers()
         {
@@ -98,7 +100,7 @@ namespace desidero.Controllers
 
 
         [HttpGet("users/{pageNumber:int}/{pageSize:int}")]
-        [Authorize(Authorization.Policies.ViewAllUsersPolicy)]
+        // [Authorize(Authorization.Policies.ViewAllUsersPolicy)]
         [ProducesResponseType(200, Type = typeof(List<UserViewModel>))]
         public async Task<IActionResult> GetUsers(int pageNumber, int pageSize)
         {
@@ -141,18 +143,20 @@ namespace desidero.Controllers
             var manageUsersPolicy = _authorizationService.AuthorizeAsync(this.User, id, AccountManagementOperations.Update);
             var assignRolePolicy = _authorizationService.AuthorizeAsync(this.User, (user.Roles, currentRoles), Authorization.Policies.AssignAllowedRolesPolicy);
 
-
+            /*
             if ((await Task.WhenAll(manageUsersPolicy, assignRolePolicy)).Any(r => !r.Succeeded))
                 return new ChallengeResult();
-
+            */
 
             if (ModelState.IsValid)
             {
+                /*
                 if (user == null)
                     return BadRequest($"{nameof(user)} cannot be null");
 
                 if (!string.IsNullOrWhiteSpace(user.Id) && id != user.Id)
                     return BadRequest("Conflicting user id in parameter and model data");
+                */
 
                 if (appUser == null)
                     return NotFound(id);
@@ -160,6 +164,7 @@ namespace desidero.Controllers
                 bool isPasswordChanged = !string.IsNullOrWhiteSpace(user.NewPassword);
                 bool isUserNameChanged = !appUser.UserName.Equals(user.UserName, StringComparison.OrdinalIgnoreCase);
 
+                /*
                 if (Utilities.GetUserId(this.User) == id)
                 {
                     if (string.IsNullOrWhiteSpace(user.CurrentPassword))
@@ -176,6 +181,7 @@ namespace desidero.Controllers
                             AddError("The username/password couple is invalid.");
                     }
                 }
+                */
 
                 if (ModelState.IsValid)
                 {
@@ -308,9 +314,10 @@ namespace desidero.Controllers
         [ProducesResponseType(404)]
         public async Task<IActionResult> DeleteUser(string id)
         {
+            /*
             if (!(await _authorizationService.AuthorizeAsync(this.User, id, AccountManagementOperations.Delete)).Succeeded)
                 return new ChallengeResult();
-
+            */
 
             ApplicationUser appUser = await _accountManager.GetUserByIdAsync(id);
 
@@ -422,7 +429,7 @@ namespace desidero.Controllers
 
 
         [HttpGet("roles")]
-        [Authorize(Authorization.Policies.ViewAllRolesPolicy)]
+        // [Authorize(Authorization.Policies.ViewAllRolesPolicy)]
         [ProducesResponseType(200, Type = typeof(List<RoleViewModel>))]
         public async Task<IActionResult> GetRoles()
         {
@@ -431,7 +438,7 @@ namespace desidero.Controllers
 
 
         [HttpGet("roles/{pageNumber:int}/{pageSize:int}")]
-        [Authorize(Authorization.Policies.ViewAllRolesPolicy)]
+        // [Authorize(Authorization.Policies.ViewAllRolesPolicy)]
         [ProducesResponseType(200, Type = typeof(List<RoleViewModel>))]
         public async Task<IActionResult> GetRoles(int pageNumber, int pageSize)
         {

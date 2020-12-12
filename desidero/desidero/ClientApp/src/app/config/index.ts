@@ -11,10 +11,16 @@ export class Configuration {
 
   public static readonly homeUrl = '/home';
 
-  public static readonly userUrl = '/wp-admin';
+  public static readonly wpAdminUrl = '/wp-admin/';
 
-  public static readonly publicationUrl = `/publication`;
+  public static readonly usersListUrl = '/wp-admin/user/list';
+
+  public static readonly userEditUrl = '/wp-admin/user/edit/';
+
+  public static readonly userDetailUrl = '/wp-admin/user/detail/';
 
   public static readonly publicationDetialUrl = 'wp-admin/publication/detail';
+
+  public static readonly publicationListUrl = 'wp-admin/publication/list';
 
 }

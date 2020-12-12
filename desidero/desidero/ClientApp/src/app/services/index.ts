@@ -8,4 +8,6 @@ export * from './account.api.service';
 export * from './publication.service';
 export * from './publication.api.service';
 export * from './messages.service';
+export * from './user.service';
+export * from './user.api.service';
 
