@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthGuard } from './guards';
+import { AdminGuard, AuthGuard } from './guards';
 
 
 import {
@@ -19,6 +19,7 @@ import {
   ],
   providers: [
     AuthGuard,
+    AdminGuard,
     MessagesService,
     AuthService,
     LocalStorage,

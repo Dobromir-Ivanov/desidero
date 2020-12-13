@@ -13,6 +13,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
 import { ChipsModule } from 'primeng/chips';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 
 
@@ -32,6 +33,7 @@ import { ChipsModule } from 'primeng/chips';
     DropdownModule,
     EditorModule,
     ChipsModule,
+    ProgressSpinnerModule,
 
   ]
 })

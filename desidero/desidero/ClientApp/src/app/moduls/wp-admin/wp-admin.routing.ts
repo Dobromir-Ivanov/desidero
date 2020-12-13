@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from 'src/app/core/guards';
+import { AdminGuard, AuthGuard } from 'src/app/core/guards';
 
 import { WpAdminComponent } from './wp-admin.component';
 
@@ -13,7 +13,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'publication', loadChildren: publicationModule },
-      { path: 'user', loadChildren: usersModule, canActivate: [AuthGuard] },
+      { path: 'user', loadChildren: usersModule, canActivate: [AuthGuard, AdminGuard] },
     ]
   }
 ];

@@ -4,6 +4,7 @@ import { Publication } from '../../../dto/publication';
 import { Injectable } from '@angular/core';
 import { PublicationApiService } from './publication.api.service';
 import { User } from '../../../dto';
+import { delay } from 'rxjs/operators';
 
 @Injectable()
 export class PublicationService {
@@ -13,7 +14,9 @@ export class PublicationService {
   constructor(private publicationApiService: PublicationApiService) { }
 
   getAll(param?: any): Observable<Publication[]> {
-    return this.publicationApiService.getAllPublication(param);
+    return this.publicationApiService.getAllPublication(param).pipe(
+      // delay(3000)
+    )
   }
 
   /* getPublicationByUser(userId: string): any {

@@ -19,11 +19,13 @@ import { PublicationService } from '../services/';
 })
 export class PublicationListComponent implements OnInit, OnDestroy {
 
-  publicationList: Publication[];
+  publicationList: Publication[] = [];
 
   categories$: Observable<Category[]>;
 
   private queryParamsSubscription: Subscription;
+
+  listIsLoaded = false;
 
   constructor(
     private publicationService: PublicationService,
@@ -45,7 +47,10 @@ export class PublicationListComponent implements OnInit, OnDestroy {
     this.queryParamsSubscription = this.activatedRoute.queryParams.pipe(
       switchMap((param) => this.publicationService.getAll(param))
     ).subscribe(
-      (items) => this.publicationList = items
+      (items) => {
+        this.publicationList = items;
+        this.listIsLoaded = true;
+      }
     )
   }
 

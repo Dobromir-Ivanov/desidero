@@ -16,15 +16,11 @@ export class PublicationApiService {
 
   getAllPublication(param?: any): Observable<Publication[]> {
     const userId = param?.userId;
-    const publications$ = of(this._storePublication)
 
-    if (!!userId) {
-      return publications$.pipe(
-        map((items) => items.filter(pub => pub.authorId === userId))
-      )
-    }
+    return (!userId)
+      ? of(this._storePublication)
+      : of(this._storePublication.filter(pub => pub.authorId === userId));
 
-    return publications$;
   }
 
 
